@@ -1,5 +1,28 @@
 FROM php:8.0.10-fpm-alpine3.14
 
+ENV PHPIZE_DEPS \
+        autoconf \
+        dpkg-dev \
+        dpkg \
+        file \
+        g++ \
+        gcc \
+        libc-dev \
+        make \
+        pkgconf \
+        re2c \
+        wget
+
+RUN set -eux; \
+        cd /; \
+        apk add --no-cache --virtual .build-deps $PHPIZE_DEPS
+
+RUN  set -eux; \
+     cd /;\
+     yes "" | pecl install xdebug \
+     ; \
+     docker-php-ext-enable xdebug;
+
 # composer
 RUN set -eu; \
     EXPECTED_CHECKSUM="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')"; \

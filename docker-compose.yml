@@ -20,7 +20,8 @@ services:
       context: ./docker/php
     container_name: centra_php
     env_file:
-      - ./docker/php/.env
+      - ./html/.env
+      - ./docker/php/.env.dev
     networks:
       - centra-docker
     volumes:
