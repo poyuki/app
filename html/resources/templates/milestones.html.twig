@@ -1,0 +1,30 @@
+{% if milestones is empty %}
+    <p>empty</p>
+{% else %}
+    {% for milestone in milestones %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <h4 class="card-title me-2">
+                    <a href="{{ milestone.getUrl() }}" target="_blank"><img src="https://img.icons8.com/ios/25/000000/external-link.png" alt="{{ milestone.getUrl() }}"/></a>
+                    {{ milestone.getTitle() }}
+                </h4>
+                <div class="d-flex flex-wrap align-items-center">
+                    <span class="me-2"><b>Creator:</b> {{ milestone.getCreatorLogin() }}</span>
+                    <span class="me-2"><b>State:</b> {{ milestone.getState() }}</span>
+                    <span class="me-2"><b>Issues:</b> {{ milestone.getOpenIssueCount() }}(Opened), {{ milestone.getOpenIssueCount() }}(Closed)</span>
+                    <span class="me-2"><b>Issues:</b> {{ milestone.getOpenIssueCount() }}(Opened), {{ milestone.getOpenIssueCount() }}(Closed)</span>
+                    <span class="me-2"><b>Created at:</b> {{ milestone.getCreatedAt() }}</span>
+                    {% if milestone.getDueDate() is not empty %}
+                        <span class="me-2"><b>Due date:</b> {{ milestone.getDueDate() }}</span>
+                    {% endif %}
+                    {% if milestone.getClosedAt() is not empty  %}
+                        <span class="me-2"><b>Closed at:</b> {{ milestone.getClosedAt() }}</span>
+                    {% endif %}
+                </div>
+                {% if milestone.getDescription() is not empty %}
+                    <p>{{ milestone.getDescription() }}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
