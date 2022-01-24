@@ -1,0 +1,16 @@
+services:
+    Github\Client:
+        factory: '@CentraApp\Infrastructure\Github\GithubClientFactory'
+
+    CentraApp\Infrastructure\Github\GithubClientFactory:
+        class: CentraApp\Infrastructure\Github\GithubClientFactory
+        arguments:
+            - '@Github\HttpClient\Builder'
+            - '@gh.cache'
+            - '@CentraApp\Infrastructure\Github\Authenticator\Api\GithubAuthenticatorInterface'
+
+    Github\HttpClient\Builder:
+        arguments:
+            - '@?Http\Client\HttpClient'
+            - '@?Http\Message\RequestFactory'
+            - '@?Http\Message\StreamFactory'
