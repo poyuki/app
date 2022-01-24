@@ -14,6 +14,11 @@
       "CentraApp\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "CentraApp\\Tests\\": "tests/"
+    }
+  },
   "require": {
     "ext-redis": "*",
     "knplabs/github-api": "^3.0",
