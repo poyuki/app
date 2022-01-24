@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="d-flex align-items-center">
+        <div>
+            {% if user.getAvatarUrl() is defined %}
+                <img src="{{ user.getAvatarUrl() }}" alt="Avatar" style="width: 100%">
+            {% endif %}
+            {% if user.getGithubUrl() is defined %}
+                <h1><a href="{{ user.getGithubUrl() }}" target="_blank">{{ user.getName() }}</a></h1>
+            {% else %}
+                <h1>{{ user.getName() }}</h1>
+            {% endif %}
+        </div>
+        <nav class="nav nav-pills">
+            {% for repo in repositories %}
+                <a class="nav-link" href="#" data-repo-name="{{ repo.getName() }}" onclick="fetchMileStones(this)">
+                    {{ repo.getName() }}({{ repo.getVisibility() }})
+                </a>
+            {% endfor %}
+        </nav>
+    </div>
+    <div id="milestones"></div>
+{% endblock %}
