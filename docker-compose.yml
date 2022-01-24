@@ -27,5 +27,11 @@ services:
     volumes:
       - ./html:/var/www/html
 
+  centra_redis:
+    container_name: centra_redis
+    image: redis:latest
+    networks:
+      - centra-docker
+
 networks:
   centra-docker:

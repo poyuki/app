@@ -19,9 +19,10 @@ RUN set -eux; \
 
 RUN  set -eux; \
      cd /;\
-     yes "" | pecl install xdebug \
+     yes "" | pecl install redis xdebug \
      ; \
-     docker-php-ext-enable xdebug;
+     docker-php-ext-enable xdebug; \
+     docker-php-ext-enable redis;
 
 # composer
 RUN set -eu; \
