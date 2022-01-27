@@ -1,3 +1,4 @@
+version: 2.4
 services:
   centra_nginx:
     container_name: centra_nginx
