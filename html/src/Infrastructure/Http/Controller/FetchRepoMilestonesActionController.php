@@ -15,8 +15,7 @@ final class FetchRepoMilestonesActionController extends AbstractController
     public function __construct(
         private GithubAuthenticatorInterface    $githubAuthenticator,
         private FetchMilestonesServiceInterface $fetchMilestonesService
-    )
-    {
+    ) {
     }
 
     #[Route('/{repoName}/milestones', 'repo-milestones', methods: 'GET')]
