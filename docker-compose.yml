@@ -1,5 +1,4 @@
-version: 2.4
-services:
+services: "2.4"
   centra_nginx:
     container_name: centra_nginx
     depends_on:
