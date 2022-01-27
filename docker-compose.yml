@@ -1,4 +1,5 @@
-services: "2.4"
+version: "2.4"
+services:
   centra_nginx:
     container_name: centra_nginx
     depends_on:
@@ -20,7 +21,6 @@ services: "2.4"
       context: ./docker/php
     container_name: centra_php
     env_file:
-      - ./html/.env
       - ./docker/php/.env.dev
     networks:
       - centra-docker
