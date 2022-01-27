@@ -34,7 +34,8 @@
     "symfony/framework-bundle": "6.1.*",
     "league/oauth2-github": "dev-main",
     "symfony/twig-bundle": "6.1.*",
-    "symfony/property-access": "6.1.*"
+    "symfony/property-access": "6.1.*",
+    "symfony/console": "6.1.*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
