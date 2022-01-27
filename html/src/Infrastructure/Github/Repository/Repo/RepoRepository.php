@@ -10,15 +10,15 @@ use Github\Client;
 class RepoRepository implements RepoRepositoryInterface
 {
     public function __construct(
-        private Client $client,
+        private Client           $client,
         private RepoEntityMapper $repoEntityMapper
     ) {
     }
 
-    public function getAll(string $user): array
+    public function getAll(string $userName): array
     {
-        $repositories = $this->client->user()->repositories($user);
+        $repositories = $this->client->user()->repositories($userName);
 
-        return array_map($this->repoEntityMapper,$repositories);
+        return array_map($this->repoEntityMapper, $repositories);
     }
 }

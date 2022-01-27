@@ -20,7 +20,7 @@ class RepoEntityMapper
 
     public function __construct()
     {
-        $propertyAccessorBuilder= new PropertyAccessorBuilder();
+        $propertyAccessorBuilder = new PropertyAccessorBuilder();
         $propertyAccessorBuilder->enableExceptionOnInvalidIndex();
         $this->propertyAccessor = $propertyAccessorBuilder->getPropertyAccessor();
     }
@@ -28,11 +28,11 @@ class RepoEntityMapper
     public function __invoke(array $rawResponseEntity): Repo
     {
         return new Repo(
-            $this->propertyAccessor->getValue($rawResponseEntity,self::NAME_PATH),
-            $this->propertyAccessor->getValue($rawResponseEntity,self::URL_PATH),
-            $this->propertyAccessor->getValue($rawResponseEntity,self::VISIBILITY_PATH),
-            $this->propertyAccessor->getValue($rawResponseEntity,self::PRIVATE_PATH),
-            $this->propertyAccessor->getValue($rawResponseEntity,self::OWNER_LOGIN_PATH)
+            $this->propertyAccessor->getValue($rawResponseEntity, self::NAME_PATH),
+            $this->propertyAccessor->getValue($rawResponseEntity, self::URL_PATH),
+            $this->propertyAccessor->getValue($rawResponseEntity, self::VISIBILITY_PATH),
+            $this->propertyAccessor->getValue($rawResponseEntity, self::PRIVATE_PATH),
+            $this->propertyAccessor->getValue($rawResponseEntity, self::OWNER_LOGIN_PATH)
         );
     }
 

@@ -21,9 +21,11 @@ class ExceptionListener
     public function onKernelException(ExceptionEvent $event): void
     {
         $exception = $event->getThrowable();
-        if($exception instanceof GithubAuthenticationException){
+        if ($exception instanceof GithubAuthenticationException) {
             $this->logger->warning($exception->getMessage());
             $event->setResponse(new RedirectResponse($this->router->generate('login')));
+            return;
         }
+        $this->logger->error($exception->getMessage(), ['exception' => $exception]);
     }
 }
